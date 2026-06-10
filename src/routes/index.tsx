@@ -188,11 +188,11 @@ function HomePage() {
               <h3 className="mb-4 text-center font-display text-lg font-semibold text-primary">Plataforma CYTEI</h3>
               <div className="aspect-video overflow-hidden rounded-2xl bg-primary shadow-2xl">
                 <iframe
-                  className="h-full w-full"
-                  src="https://www.youtube.com/embed/VIDEO_PLATAFORMA"
-                  title="CYTEI Plataforma"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                      className="h-full w-full"
+                      src="https://www.youtube.com/embed/bF25UkRnB_4?rel=0"
+                      title="CYTEI Plataforma"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
                 />
               </div>
             </div>
