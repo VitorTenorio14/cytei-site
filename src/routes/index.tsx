@@ -100,7 +100,7 @@ function HomePage() {
             {/* CARD 80 MIL COOPERADOS */}
             <div className="rounded-2xl bg-white p-10 text-center shadow-2xl">
               <div className="font-display text-6xl font-bold text-primary lg:text-7xl">
-                ~80<span className="text-brand">.000</span>
+                <span className="text-brand">~80.000</span>
               </div>
               <p className="mt-3 text-lg font-semibold text-primary">cooperados esperando energia</p>
               <p className="mt-4 text-sm text-muted-foreground">

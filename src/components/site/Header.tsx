@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logoCytei from '../../assets/logo-cytei.png';
 
 const nav = [
   { to: "/", label: "Home" },
@@ -18,9 +19,9 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         <Link to="/" className="flex items-center">
             <img
-              src="/logo-cytei.png"
+              src={logoCytei}
               alt="CYTEI"
-              className="h-12 w-auto object-contain brightness-0 invert"
+              className="h-14 w-auto object-contain"
             />
         </Link>
 

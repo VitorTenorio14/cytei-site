@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, MessageCircle, Mail, MapPin, Facebook } from "lucide-react";
+import logoCytei from '../../assets/logo-cytei.png';
+
 
 
 export function Footer() {
@@ -9,9 +11,9 @@ export function Footer() {
         <div>
           <Link to="/">
             <img
-              src="/logo-cytei.png"
+              src={logoCytei}
               alt="CYTEI"
-              className="h-14 w-auto object-contain brightness-0 invert"
+              className="h-14 w-auto object-contain"
             />
           </Link>
           <p className="mt-4 text-sm text-white/75">
@@ -47,8 +49,8 @@ export function Footer() {
             <li><Link to="/parceiros" className="hover:text-brand">Parceiros</Link></li>
             <li><Link to="/contato" className="hover:text-brand">Contato</Link></li>
             <li><a href="https://app.cytei.com.br" target="_blank" rel="noreferrer" className="hover:text-brand">Plataforma</a></li>
-            <li><a href="#" className="hover:text-brand">Política de Privacidade</a></li>
-            <li><a href="#" className="hover:text-brand">Termos de Uso</a></li>
+            <li><a href="https://cytei.com.br/politica-privacidade/" className="hover:text-brand">Política de Privacidade</a></li>
+            <li><a href="https://cytei.com.br/politica-privacidade/" className="hover:text-brand">Termos de Uso</a></li>
           </ul>
         </div>
 
