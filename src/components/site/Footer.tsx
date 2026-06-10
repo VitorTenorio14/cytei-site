@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, MessageCircle, Mail, MapPin, Facebook } from "lucide-react";
-import logoCytei from '../../assets/logo-cytei.png';
+import logoCytei from '../../assets/logo-cytei-2.png';
 
 
 
@@ -10,11 +10,13 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-4 lg:px-8">
         <div>
           <Link to="/">
-            <img
-              src={logoCytei}
-              alt="CYTEI"
-              className="h-14 w-auto object-contain"
-            />
+            <div className="inline-block rounded-xl bg-white px-4 py-2">
+              <img
+                src={logoCytei}
+                alt="CYTEI"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
           </Link>
           <p className="mt-4 text-sm text-white/75">
             A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética.
@@ -64,7 +66,7 @@ export function Footer() {
             <li className="flex gap-2">
               <MessageCircle size={16} className="mt-0.5 shrink-0 text-brand" />
               <a href="https://wa.me/556198221316" target="_blank" rel="noreferrer" className="hover:text-brand">
-                +55 61 9822-11316
+                +55 61 99822-1316
               </a>
             </li>
             <li className="flex gap-2">

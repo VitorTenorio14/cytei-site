@@ -20,7 +20,7 @@ const canais = [
   {
     icon: Phone,
     label: "Telefone / WhatsApp",
-    valor: "+55 61 9822-11316",
+    valor: "+55 61 99822-1316",
     href: "https://wa.me/556198221316",
   },
   {

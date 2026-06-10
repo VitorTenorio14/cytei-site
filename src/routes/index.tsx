@@ -52,7 +52,7 @@ function HomePage() {
             Energia que conecta
           </span>
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-tight lg:text-6xl">
-            A Gestão completo de ponta a ponta da <span className="text-brand">energia renovável</span> no Brasil.
+            A Gestão completa de ponta a ponta da <span className="text-brand">energia renovável</span> no Brasil.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/85">
             A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética — conectando consumidores, integradoras, especialistas, investidores e fornecedores em uma única plataforma.
