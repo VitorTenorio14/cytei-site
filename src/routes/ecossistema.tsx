@@ -16,7 +16,7 @@ const empresas = [
     icon: Users,
     name: "Enercoop do Brasil",
     desc: "Cooperativa de energia renovável com modelo colaborativo para geração compartilhada. Mais de 80 mil cooperados aguardando energia compensada — um mercado pronto para quem tem energia disponível.",
-    url: "https://willianruaswr.wixstudio.com/enercoop-v0",
+    url: "https://enercoop.com.br/",
     color: "bg-emerald-500",
   },
   {
@@ -106,7 +106,7 @@ function EcossistemaPage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://willianruaswr.wixstudio.com/enercoop-v0"
+              href="https://enercoop.com.br/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 font-semibold text-brand-foreground shadow-lg transition hover:brightness-110"

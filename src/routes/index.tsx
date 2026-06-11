@@ -22,9 +22,9 @@ const solucoes = [
 ];
 
 const passos = [
-  { n: "01", t: "Cadastre-se", d: "Crie seu perfil gratuitamente como consumidor, integradora, investidor ou fornecedor." },
-  { n: "02", t: "Conecte-se", d: "Acesse oportunidades, parceiros e serviços direcionados ao seu perfil." },
-  { n: "03", t: "Energize", d: "Gestão e compensação de energia, acompanhe tudo em um único painel inteligente." },
+  { n: "01", t: "Cadastre-se", d: "Crie seu perfil gratuitamente como associação, cooperativa, consumidor, integradora ou investidor." },
+  { n: "02", t: "Conecte-se", d: "Acesse oportunidades, parceiros, serviços e soluções sob medida direcionados ao seu perfil." },
+  { n: "03", t: "Energize", d: "Gestão de energia, acompanhe tudo em um único painel inteligente." },
 ];
 
 const faqs = [
@@ -52,19 +52,53 @@ function HomePage() {
             Energia que conecta
           </span>
           <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-tight lg:text-6xl">
-            A Gestão completa de ponta a ponta da <span className="text-brand">energia renovável</span> no Brasil.
+            A Gestão completa da <span className="text-brand">energia renovável</span> no Brasil, de ponta a ponta.
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/85">
-            A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética — conectando consumidores, integradoras, especialistas, investidores e fornecedores em uma única plataforma.
+            A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética — conectando consumidores, integradoras, especialistas, investidores usineiros e fornecedores em uma única plataforma.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="https://app.cytei.com.br" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 font-semibold text-brand-foreground shadow-lg transition hover:brightness-110">
-              Acesse a Plataforma
-              <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+            <a  href="https://app.cytei.com.br" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110">
+                    Acesse a Plataforma
+                  <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </a>
-            <a href="https://app.calculadora.cytei.com.br" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-7 py-3.5 font-semibold text-white transition hover:border-brand hover:text-brand">
-              Calcule sua economia
-            </a>
+            <a href="https://app.calculadora.cytei.com.br" target="_blank" rel="noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-brand px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
+            >
+              <span className="relative flex h-6 w-6 items-center justify-center">
+                {/* Brilho pulsante atrás da lâmpada */}
+                <span className="absolute inset-0 animate-ping rounded-full opacity-40"
+                  style={{ animation: "lampGlow 2s ease-in-out infinite", background: "currentColor" }}
+                />
+                {/* Ícone lâmpada SVG */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="relative z-10 h-5 w-5"
+                  style={{ animation: "lampColor 3s ease-in-out infinite" }}
+                >
+                <path d="M12 2a7 7 0 0 1 5.292 11.584c-.668.8-1.292 1.56-1.292 2.416v.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V16c0-.856-.624-1.616-1.292-2.416A7 7 0 0 1 12 2zm2.5 15.5h-5V19h5v-1.5zm-5 2h5v.5a2.5 2.5 0 0 1-5 0V19.5z" />
+              </svg>
+            </span>
+
+                  Calcule sua economia
+
+            <style>{`
+                    @keyframes lampColor {
+                      0%   { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+                      33%  { color: #eab308; filter: drop-shadow(0 0 6px #eab308); }
+                      66%  { color: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
+                      100% { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+                    }
+                    @keyframes lampGlow {
+                      0%   { background: #22c55e; transform: scale(1);   opacity: 0.3; }
+                      33%  { background: #eab308; transform: scale(1.4); opacity: 0.2; }
+                      66%  { background: #ef4444; transform: scale(1.2); opacity: 0.25; }
+                      100% { background: #22c55e; transform: scale(1);   opacity: 0.3; }
+                    }
+                 `}</style>
+          </a>
           </div>
         </div>
       </section>
@@ -87,13 +121,13 @@ function HomePage() {
                 <img src="/logo-enercoop.png" alt="Enercoop do Brasil" className="h-12 w-auto object-contain" />
               </div>
               <p className="mt-5 text-lg text-white/80">
-                A CYTEI firmou parceria com a Enercoop do Brasil para conectar geração de energia a uma base real de consumidores cooperados — transformando energia disponível em receita.
+                A CYTEI é parceira da Enercoop do Brasil para conectar geração de energia a uma base real de cooperados — transformando energia disponível em receita.
               </p>
               <a
-                href="/ecossistema"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
+                href="https://enercoop.com.br/"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase text-brand tracking-wider"
               >
-                Conheça nosso ecossistema →
+                Conheça a Enercoop do Brasil →
               </a>
             </div>
 
@@ -107,7 +141,7 @@ function HomePage() {
                 Se você tem energia disponível para ser compensada, essa é a sua oportunidade. Conecte sua geração a uma demanda real de consumo.
               </p>
               <a
-                href="https://willianruaswr.wixstudio.com/enercoop-v0"
+                href="https://enercoop.com.br/"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-block rounded-full bg-brand px-8 py-3.5 font-semibold text-brand-foreground shadow-lg transition hover:brightness-110"
@@ -128,7 +162,7 @@ function HomePage() {
               Tudo o que sua jornada de energia precisa
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Da geração à compensação, ferramentas pensadas para cada perfil do mercado.
+              Da geração à compensação, oferecemos ferramentas sob medida para cada perfil do mercado.
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">

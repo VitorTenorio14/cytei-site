@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, MessageCircle, Mail, MapPin, Facebook } from "lucide-react";
-import logoCytei from '../../assets/logo-cytei-2.png';
+import logoCytei from '../../assets/logo-cytei.png';
 
 
 
@@ -10,11 +10,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-4 lg:px-8">
         <div>
           <Link to="/">
-            <div className="inline-block rounded-xl bg-white px-4 py-2">
+            <div className="inline-block rounded-xl bg-white px-5 py-3">
               <img
                 src={logoCytei}
                 alt="CYTEI"
-                className="h-12 w-auto object-contain"
+                className="h-18 w-auto object-contain"
               />
             </div>
           </Link>
