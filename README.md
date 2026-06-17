@@ -182,10 +182,6 @@ RewriteRule ^ index.html [QSA,L]
 
 > **Dica:** adicione o `.htaccess` na pasta `public/` do projeto. O Vite copia automaticamente tudo de `public/` para `dist/` no build.
 
-### Vercel (alternativo)
-
-O arquivo `vercel.json` já está configurado com o rewrite de SPA. Basta conectar o repositório na Vercel e fazer o deploy — não é necessária nenhuma configuração adicional.
-
 ---
 
 ## Parceria Enercoop
