@@ -62,7 +62,7 @@ function HomePage() {
                     Acesse a Plataforma
                   <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </a>
-            <a href="https://app.calculadora.cytei.com.br" target="_blank" rel="noreferrer"
+            <a href="https://proposta.cytei.com.br" target="_blank" rel="noreferrer"
                   className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-brand px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
             >
               <span className="relative flex h-6 w-6 items-center justify-center">
@@ -105,7 +105,7 @@ function HomePage() {
 
 
       {/* PARCERIA ENERCOOP */}
-      <section className="bg-primary py-20 text-primary-foreground lg:py-28">
+      <section className="bg-gradient-to-br from-[#243872] via-[#1A4A6A] to-[#0E6B5E] py-20 text-primary-foreground lg:py-28">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
