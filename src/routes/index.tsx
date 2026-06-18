@@ -242,10 +242,10 @@ function HomePage() {
             </p>
             <div className="mt-8 grid grid-cols-2 items-center gap-8 md:grid-cols-4">
               {[
-                { name: "Bloxs", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/parceiros/bloxs.png" },
-                { name: "S2B", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/parceiros/s2b.png" },
-                { name: "Valyoot Energia", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/parceiros/valyoot.png" },
-                { name: "Thesis Business Solutions", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/parceiros/Thesis.png" },
+                { name: "Bloxs", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/bloxs.png" },
+                { name: "S2B", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/s2b.png" },
+                { name: "Valyoot Energia", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/valyoot.png" },
+                { name: "Thesis Business Solutions", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/Thesis.png" },
               ].map((p) => (
                 <div key={p.name} className="flex h-20 items-center justify-center rounded-xl bg-white px-6 shadow-sm">
                   <img src={p.logo} alt={p.name} className="max-h-12 max-w-full object-contain" />

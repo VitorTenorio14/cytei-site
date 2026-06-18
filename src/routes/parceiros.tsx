@@ -3,7 +3,7 @@ import { SiteLayout, PageHero } from "@/components/site/Layout";
 
 // Base URL das imagens hospedadas no GitHub
 const BASE =
-  "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/parceiros";
+  "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros";
 
 const parceiros = [
   { name: "Bloxs",                         logo: `${BASE}/bloxs.png` },
