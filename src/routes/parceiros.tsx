@@ -12,7 +12,7 @@ export const Route = createFileRoute("/parceiros")({
 });
 
 // Base URL das imagens hospedadas no GitHub
-const BASE = "https://raw.githubusercontent.com/CYTEI/cytei-site/main/public/parceiros";
+const BASE = "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/parceiros";
 
 const parceiros = [
   {
@@ -29,23 +29,23 @@ const parceiros = [
   },
   {
     name: "Thesis Business Solutions",
-    logo: `${BASE}/Thesis_-_Logo_01-removebg-preview.png`,
+    logo: `${BASE}/Thesis.png`,
   },
   {
     name: "JSN Energia",
-    logo: `${BASE}/WhatsApp_Image_2024-12-11_at_16_16_09__1_-removebg-preview__1_.png`,
+    logo: `${BASE}/jsn-energia.png`,
   },
   {
     name: "SB Solar",
-    logo: `${BASE}/SB_SOLAR_LOGO_FINAL_VERT_TRANSP__1_.png`,
-  },
-  {
-    name: "JSN Energia",
-    logo: `${BASE}/Captura_de_tela_2025-09-04_094838-removebg-preview__2_.png`,
+    logo: `${BASE}/sb-solar.png`,
   },
   {
     name: "Sinergia Solar",
-    logo: `${BASE}/Captura_de_tela_2025-09-04_095204-removebg-preview__2_.png`,
+    logo: `${BASE}/sinergia-solar.png`,
+  },
+  {
+    name: "EDC Energia das Cooperativas",
+    logo: `${BASE}/edc.png`,
   },
 ];
 
