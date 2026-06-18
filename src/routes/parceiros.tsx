@@ -2,22 +2,51 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/parceiros")({
-  head: () => ({ meta: [
-    { title: "Parceiros — CYTEI" },
-    { name: "description", content: "Empresas parceiras do ecossistema CYTEI." },
-  ] }),
+  head: () => ({
+    meta: [
+      { title: "Parceiros — CYTEI" },
+      { name: "description", content: "Empresas parceiras do ecossistema CYTEI." },
+    ],
+  }),
   component: ParceirosPage,
 });
 
+// Base URL das imagens hospedadas no GitHub
+const BASE = "https://raw.githubusercontent.com/CYTEI/cytei-site/main/public/parceiros";
+
 const parceiros = [
-  { name: "Bloxs", logo: "https://cytei.com.br/wp-content/uploads/2021/04/bloxs-300x116.png" },
-  { name: "S2B", logo: "https://cytei.com.br/wp-content/uploads/2021/04/s2b-300x169.png" },
-  { name: "Valyoot", logo: "https://cytei.com.br/wp-content/uploads/2021/04/valyoot-300x150.png" },
-  { name: "Thesis", logo: "https://cytei.com.br/wp-content/uploads/2021/05/Thesis_-_Logo_01-removebg-preview-300x107.png" },
-  { name: "Parceiro 5", logo: "https://cytei.com.br/wp-content/uploads/2025/02/WhatsApp_Image_2024-12-11_at_16.16.09__1_-removebg-preview-300x140.png" },
-  { name: "SB Solar", logo: "https://cytei.com.br/wp-content/uploads/2025/12/SB_SOLAR_LOGO_FINAL_VERT_TRANSP-300x152.png" },
-  { name: "Parceiro 7", logo: "https://cytei.com.br/wp-content/uploads/2025/12/Captura_de_tela_2025-09-04_094838-removebg-preview-300x121.png" },
-  { name: "Parceiro 8", logo: "https://cytei.com.br/wp-content/uploads/2025/12/Captura_de_tela_2025-09-04_095204-removebg-preview.png" },
+  {
+    name: "Bloxs",
+    logo: `${BASE}/bloxs.png`,
+  },
+  {
+    name: "S2B — Solutions to Business",
+    logo: `${BASE}/s2b.png`,
+  },
+  {
+    name: "Valyoot Energia",
+    logo: `${BASE}/valyoot.png`,
+  },
+  {
+    name: "Thesis Business Solutions",
+    logo: `${BASE}/Thesis_-_Logo_01-removebg-preview.png`,
+  },
+  {
+    name: "JSN Energia",
+    logo: `${BASE}/WhatsApp_Image_2024-12-11_at_16_16_09__1_-removebg-preview__1_.png`,
+  },
+  {
+    name: "SB Solar",
+    logo: `${BASE}/SB_SOLAR_LOGO_FINAL_VERT_TRANSP__1_.png`,
+  },
+  {
+    name: "JSN Energia",
+    logo: `${BASE}/Captura_de_tela_2025-09-04_094838-removebg-preview__2_.png`,
+  },
+  {
+    name: "Sinergia Solar",
+    logo: `${BASE}/Captura_de_tela_2025-09-04_095204-removebg-preview__2_.png`,
+  },
 ];
 
 function ParceirosPage() {

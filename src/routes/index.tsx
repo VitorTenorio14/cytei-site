@@ -234,26 +234,26 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PARCEIROS */}
+    {/* PARCEIROS */}
       <section className="bg-[var(--surface)] py-16">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            Parceiros que confiam na CYTEI
-          </p>
-          <div className="mt-8 grid grid-cols-2 items-center gap-8 md:grid-cols-4">
-            {[
-              { name: "Bloxs", logo: "https://cytei.com.br/wp-content/uploads/2021/04/bloxs-300x116.png" },
-              { name: "S2B", logo: "https://cytei.com.br/wp-content/uploads/2021/04/s2b-300x169.png" },
-              { name: "Valyoot", logo: "https://cytei.com.br/wp-content/uploads/2021/04/valyoot-300x150.png" },
-              { name: "Thesis", logo: "https://cytei.com.br/wp-content/uploads/2021/05/Thesis_-_Logo_01-removebg-preview-300x107.png" },
-            ].map((p) => (
-              <div key={p.name} className="flex h-20 items-center justify-center rounded-xl bg-white px-6 shadow-sm">
-                <img src={p.logo} alt={p.name} className="max-h-12 max-w-full object-contain" />
-              </div>
-            ))}
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <p className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              Parceiros que confiam na CYTEI
+            </p>
+            <div className="mt-8 grid grid-cols-2 items-center gap-8 md:grid-cols-4">
+              {[
+                { name: "Bloxs", logo: "https://raw.githubusercontent.com/CYTEI/cytei-site/main/public/parceiros/bloxs.png" },
+                { name: "S2B", logo: "https://raw.githubusercontent.com/CYTEI/cytei-site/main/public/parceiros/s2b.png" },
+                { name: "Valyoot Energia", logo: "https://raw.githubusercontent.com/CYTEI/cytei-site/main/public/parceiros/valyoot.png" },
+                { name: "Thesis Business Solutions", logo: "https://raw.githubusercontent.com/CYTEI/cytei-site/main/public/parceiros/Thesis_-_Logo_01-removebg-preview.png" },
+              ].map((p) => (
+                <div key={p.name} className="flex h-20 items-center justify-center rounded-xl bg-white px-6 shadow-sm">
+                  <img src={p.logo} alt={p.name} className="max-h-12 max-w-full object-contain" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* FAQ */}
       <section className="bg-background py-20 lg:py-28">
