@@ -34,6 +34,49 @@ const faqs = [
   { q: "Como funciona o marketplace da CYTEI?", a: "Conectamos você diretamente a integradoras e fornecedores qualificados, com cotações transparentes." },
 ];
 
+function BotaoEnercoop({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href="https://app.calculadora.cytei.com.br/"
+      target="_blank"
+      rel="noreferrer"
+      className={`group inline-flex items-center gap-2.5 rounded-full border-2 border-white bg-brand px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110 ${className}`}
+    >
+      {/* Lâmpada com pulso verde/vermelho */}
+      <span className="relative flex h-5 w-5 items-center justify-center">
+        <span
+          className="absolute inset-0 rounded-full opacity-40"
+          style={{ animation: "lampGlowGR 2s ease-in-out infinite", background: "currentColor" }}
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="relative z-10 h-4 w-4"
+          style={{ animation: "lampColorGR 2s ease-in-out infinite" }}
+        >
+          <path d="M12 2a7 7 0 0 1 5.292 11.584c-.668.8-1.292 1.56-1.292 2.416v.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V16c0-.856-.624-1.616-1.292-2.416A7 7 0 0 1 12 2zm2.5 15.5h-5V19h5v-1.5zm-5 2h5v.5a2.5 2.5 0 0 1-5 0V19.5z" />
+        </svg>
+      </span>
+
+      Calcule sua economia com a Enercoop
+
+      <style>{`
+        @keyframes lampColorGR {
+          0%   { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+          50%  { color: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
+          100% { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+        }
+        @keyframes lampGlowGR {
+          0%   { background: #22c55e; transform: scale(1);   opacity: 0.35; }
+          50%  { background: #ef4444; transform: scale(1.3); opacity: 0.25; }
+          100% { background: #22c55e; transform: scale(1);   opacity: 0.35; }
+        }
+      `}</style>
+    </a>
+  );
+}
+
 function HomePage() {
   return (
     <SiteLayout>
@@ -57,52 +100,79 @@ function HomePage() {
           <p className="mt-5 max-w-2xl text-lg text-white/85">
             A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética — conectando consumidores, integradoras, especialistas, investidores usineiros e fornecedores em uma única plataforma.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a  href="https://app.cytei.com.br" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110">
-                    Acesse a Plataforma
-                  <ArrowRight size={18} className="transition group-hover:translate-x-1" />
-            </a>
-            <a href="https://proposta.cytei.com.br" target="_blank" rel="noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-brand px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
-            >
-              <span className="relative flex h-6 w-6 items-center justify-center">
-                {/* Brilho pulsante atrás da lâmpada */}
-                <span className="absolute inset-0 animate-ping rounded-full opacity-40"
-                  style={{ animation: "lampGlow 2s ease-in-out infinite", background: "currentColor" }}
+
+          <div className="mt-8 flex flex-wrap items-end gap-4 lg:justify-between">
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="https://app.cytei.com.br"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
+              >
+                Acesse a Plataforma
+                <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+              </a>
+
+              <a
+                href="https://proposta.cytei.com.br"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
+              >
+                <span className="relative flex h-6 w-6 items-center justify-center">
+                  {/* Brilho pulsante atrás da lâmpada */}
+                  <span
+                    className="absolute inset-0 animate-ping rounded-full opacity-40"
+                    style={{ animation: "lampGlow 2s ease-in-out infinite", background: "currentColor" }}
+                  />
+                  {/* Ícone lâmpada SVG */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="relative z-10 h-5 w-5"
+                    style={{ animation: "lampColor 3s ease-in-out infinite" }}
+                  >
+                    <path d="M12 2a7 7 0 0 1 5.292 11.584c-.668.8-1.292 1.56-1.292 2.416v.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V16c0-.856-.624-1.616-1.292-2.416A7 7 0 0 1 12 2zm2.5 15.5h-5V19h5v-1.5zm-5 2h5v.5a2.5 2.5 0 0 1-5 0V19.5z" />
+                  </svg>
+                </span>
+
+                Gerar economia
+
+                <style>{`
+                  @keyframes lampColor {
+                    0%   { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+                    33%  { color: #eab308; filter: drop-shadow(0 0 6px #eab308); }
+                    66%  { color: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
+                    100% { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+                  }
+                  @keyframes lampGlow {
+                    0%   { background: #22c55e; transform: scale(1);   opacity: 0.3; }
+                    33%  { background: #eab308; transform: scale(1.4); opacity: 0.2; }
+                    66%  { background: #ef4444; transform: scale(1.2); opacity: 0.25; }
+                    100% { background: #22c55e; transform: scale(1);   opacity: 0.3; }
+                  }
+                `}</style>
+              </a>
+            </div>
+
+            {/* Espaçador — empurra o bloco Enercoop para a direita em telas largas */}
+            <div className="hidden flex-1 lg:block" />
+
+            {/* Logo + botão na mesma coluna — logo sempre centrada em relação ao botão */}
+            <div className="flex flex-col items-center gap-3">
+              <div className="rounded-xl bg-white px-6 py-4 shadow-md lg:px-7 lg:py-5">
+                <img
+                  src="/logo-enercoop.png"
+                  alt="Enercoop do Brasil"
+                  className="h-10 w-auto object-contain lg:h-16"
                 />
-                {/* Ícone lâmpada SVG */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="relative z-10 h-5 w-5"
-                  style={{ animation: "lampColor 3s ease-in-out infinite" }}
-                >
-                <path d="M12 2a7 7 0 0 1 5.292 11.584c-.668.8-1.292 1.56-1.292 2.416v.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V16c0-.856-.624-1.616-1.292-2.416A7 7 0 0 1 12 2zm2.5 15.5h-5V19h5v-1.5zm-5 2h5v.5a2.5 2.5 0 0 1-5 0V19.5z" />
-              </svg>
-            </span>
-
-                  Calcule sua economia
-
-            <style>{`
-                    @keyframes lampColor {
-                      0%   { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
-                      33%  { color: #eab308; filter: drop-shadow(0 0 6px #eab308); }
-                      66%  { color: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
-                      100% { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
-                    }
-                    @keyframes lampGlow {
-                      0%   { background: #22c55e; transform: scale(1);   opacity: 0.3; }
-                      33%  { background: #eab308; transform: scale(1.4); opacity: 0.2; }
-                      66%  { background: #ef4444; transform: scale(1.2); opacity: 0.25; }
-                      100% { background: #22c55e; transform: scale(1);   opacity: 0.3; }
-                    }
-                 `}</style>
-          </a>
+              </div>
+              <BotaoEnercoop />
+            </div>
           </div>
         </div>
       </section>
-
 
       {/* PARCERIA ENERCOOP */}
       <section className="bg-gradient-to-br from-[#243872] via-[#1A4A6A] to-[#0E6B5E] py-20 text-primary-foreground lg:py-28">
@@ -123,12 +193,19 @@ function HomePage() {
               <p className="mt-5 text-lg text-white/80">
                 A CYTEI é parceira da Enercoop do Brasil para conectar geração de energia a uma base real de cooperados — transformando energia disponível em receita.
               </p>
-              <a
-                href="https://enercoop.com.br/"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase text-brand tracking-wider"
-              >
-                Conheça a Enercoop do Brasil →
-              </a>
+
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <a
+                  href="https://enercoop.com.br/"
+                  className="inline-flex items-center gap-2 text-sm font-semibold uppercase text-brand tracking-wider"
+                >
+                  Conheça a Enercoop do Brasil →
+                </a>
+              </div>
+
+              <div className="mt-6">
+                <BotaoEnercoop />
+              </div>
             </div>
 
             {/* CARD 80 MIL COOPERADOS */}
@@ -152,156 +229,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* SOLUÇÕES */}
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Soluções</span>
-            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">
-              Tudo o que sua jornada de energia precisa
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Da geração à compensação, oferecemos ferramentas sob medida para cada perfil do mercado.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {solucoes.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="group rounded-2xl border bg-card p-7 transition hover:-translate-y-1 hover:border-brand hover:shadow-xl">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-brand transition group-hover:bg-brand group-hover:text-brand-foreground">
-                  <Icon size={22} />
-                </div>
-                <h3 className="mt-5 font-display text-xl font-semibold text-primary">{title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* COMO FUNCIONA */}
-      <section className="bg-[var(--surface)] py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="text-center">
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Como funciona</span>
-            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">Em 3 passos simples</h2>
-          </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {passos.map((p) => (
-              <div key={p.n} className="relative rounded-2xl bg-card p-8 shadow-sm">
-                <div className="font-display text-5xl font-bold text-brand">{p.n}</div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-primary">{p.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* VÍDEOS */}
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="text-center">
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Conheça a CYTEI</span>
-            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">Nossos vídeos</h2>
-          </div>
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <div>
-              <h3 className="mb-4 text-center font-display text-lg font-semibold text-primary">Institucional CYTEI</h3>
-              <div className="aspect-video overflow-hidden rounded-2xl bg-primary shadow-2xl">
-                <iframe
-                  className="h-full w-full"
-                  src="https://www.youtube.com/embed/pON5ypZLqhk"
-                  title="CYTEI Institucional"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="mb-4 text-center font-display text-lg font-semibold text-primary">Plataforma CYTEI</h3>
-              <div className="aspect-video overflow-hidden rounded-2xl bg-primary shadow-2xl">
-                <iframe
-                      className="h-full w-full"
-                      src="https://www.youtube.com/embed/bF25UkRnB_4?rel=0"
-                      title="CYTEI Plataforma"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    {/* PARCEIROS */}
-      <section className="bg-[var(--surface)] py-16">
-          <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <p className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Parceiros que confiam na CYTEI
-            </p>
-            <div className="mt-8 grid grid-cols-2 items-center gap-8 md:grid-cols-4">
-              {[
-                { name: "Bloxs", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/bloxs.png" },
-                { name: "S2B", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/s2b.png" },
-                { name: "Valyoot Energia", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/valyoot.png" },
-                { name: "Thesis Business Solutions", logo: "https://raw.githubusercontent.com/VitorTenorio14/cytei-site/master/public/imgs-parceiros/Thesis.png" },
-              ].map((p) => (
-                <div key={p.name} className="flex h-20 items-center justify-center rounded-xl bg-white px-6 shadow-sm">
-                  <img src={p.logo} alt={p.name} className="max-h-12 max-w-full object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-      {/* FAQ */}
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-3xl px-4 lg:px-8">
-          <div className="text-center">
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand">FAQ</span>
-            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">Perguntas frequentes</h2>
-          </div>
-          <div className="mt-10 space-y-3">
-            {faqs.map((f, i) => <FAQItem key={i} {...f} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* CONTATO */}
-      <section className="bg-primary py-20 text-primary-foreground lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:px-8">
-          <div>
-            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Fale conosco</span>
-            <h2 className="mt-2 font-display text-3xl font-bold lg:text-4xl">Pronto para acelerar sua jornada renovável?</h2>
-            <p className="mt-4 text-white/80">
-              Conte com o time CYTEI para encontrar a melhor solução para o seu perfil.
-            </p>
-          </div>
-          <form className="space-y-4 rounded-2xl bg-white p-8 text-foreground shadow-2xl">
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Nome completo" />
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="E-mail" type="email" />
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Telefone" />
-            <textarea rows={4} className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Como podemos ajudar?" />
-            <button type="button" className="w-full rounded-full bg-brand py-3.5 font-semibold text-brand-foreground transition hover:brightness-110">
-              Enviar mensagem
-            </button>
-          </form>
-        </div>
-      </section>
     </SiteLayout>
-  );
-}
-
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="overflow-hidden rounded-xl border bg-card">
-      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between px-5 py-4 text-left font-semibold text-primary">
-        {q}
-        <ChevronDown size={18} className={`transition ${open ? "rotate-180" : ""}`} />
-      </button>
-      {open && <div className="px-5 pb-4 text-sm text-muted-foreground">{a}</div>}
-    </div>
   );
 }
