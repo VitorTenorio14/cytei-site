@@ -156,10 +156,8 @@ function HomePage() {
               </a>
             </div>
 
-            {/* Espaçador — empurra o bloco Enercoop para a direita em telas largas */}
             <div className="hidden flex-1 lg:block" />
 
-            {/* Logo + botão na mesma coluna — logo sempre centrada em relação ao botão */}
             <div className="flex flex-col items-center gap-3">
               <div className="rounded-xl bg-white px-6 py-4 shadow-md lg:px-7 lg:py-5">
                 <img
