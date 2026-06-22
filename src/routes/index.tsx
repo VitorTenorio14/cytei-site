@@ -227,6 +227,157 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+  
+      {/* SOLUÇÕES */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="max-w-2xl">
+            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Soluções</span>
+            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">
+              Tudo o que sua jornada de energia precisa
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Da geração à compensação, oferecemos ferramentas sob medida para cada perfil do mercado.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {solucoes.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="group rounded-2xl border bg-card p-7 transition hover:-translate-y-1 hover:border-brand hover:shadow-xl">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-brand transition group-hover:bg-brand group-hover:text-brand-foreground">
+                  <Icon size={22} />
+                </div>
+                <h3 className="mt-5 font-display text-xl font-semibold text-primary">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COMO FUNCIONA */}
+      <section className="bg-[var(--surface)] py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Como funciona</span>
+            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">Em 3 passos simples</h2>
+          </div>
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {passos.map((p) => (
+              <div key={p.n} className="relative rounded-2xl bg-card p-8 shadow-sm">
+                <div className="font-display text-5xl font-bold text-brand">{p.n}</div>
+                <h3 className="mt-4 font-display text-xl font-semibold text-primary">{p.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VÍDEOS */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Conheça a CYTEI</span>
+            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">Nossos vídeos</h2>
+          </div>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-center font-display text-lg font-semibold text-primary">Institucional CYTEI</h3>
+              <div className="aspect-video overflow-hidden rounded-2xl bg-primary shadow-2xl">
+                <iframe
+                  className="h-full w-full"
+                  src="https://www.youtube.com/embed/pON5ypZLqhk"
+                  title="CYTEI Institucional"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+            <div>
+              <h3 className="mb-4 text-center font-display text-lg font-semibold text-primary">Plataforma CYTEI</h3>
+              <div className="aspect-video overflow-hidden rounded-2xl bg-primary shadow-2xl">
+                <iframe
+                      className="h-full w-full"
+                      src="https://www.youtube.com/embed/bF25UkRnB_4?rel=0"
+                      title="CYTEI Plataforma"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PARCEIROS */}
+      <section className="bg-[var(--surface)] py-16">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <p className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            Parceiros que confiam na CYTEI
+          </p>
+          <div className="mt-8 grid grid-cols-2 items-center gap-8 md:grid-cols-4">
+            {[
+              { name: "Bloxs", logo: "https://cytei.com.br/wp-content/uploads/2021/04/bloxs-300x116.png" },
+              { name: "S2B", logo: "https://cytei.com.br/wp-content/uploads/2021/04/s2b-300x169.png" },
+              { name: "Valyoot", logo: "https://cytei.com.br/wp-content/uploads/2021/04/valyoot-300x150.png" },
+              { name: "Thesis", logo: "https://cytei.com.br/wp-content/uploads/2021/05/Thesis_-_Logo_01-removebg-preview-300x107.png" },
+            ].map((p) => (
+              <div key={p.name} className="flex h-20 items-center justify-center rounded-xl bg-white px-6 shadow-sm">
+                <img src={p.logo} alt={p.name} className="max-h-12 max-w-full object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-background py-20 lg:py-28">
+        <div className="mx-auto max-w-3xl px-4 lg:px-8">
+          <div className="text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-brand">FAQ</span>
+            <h2 className="mt-2 font-display text-3xl font-bold text-primary lg:text-4xl">Perguntas frequentes</h2>
+          </div>
+          <div className="mt-10 space-y-3">
+            {faqs.map((f, i) => <FAQItem key={i} {...f} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section className="bg-primary py-20 text-primary-foreground lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-2 lg:px-8">
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-wider text-brand">Fale conosco</span>
+            <h2 className="mt-2 font-display text-3xl font-bold lg:text-4xl">Pronto para acelerar sua jornada renovável?</h2>
+            <p className="mt-4 text-white/80">
+              Conte com o time CYTEI para encontrar a melhor solução para o seu perfil.
+            </p>
+          </div>
+          <form className="space-y-4 rounded-2xl bg-white p-8 text-foreground shadow-2xl">
+            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Nome completo" />
+            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="E-mail" type="email" />
+            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Telefone" />
+            <textarea rows={4} className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Como podemos ajudar?" />
+            <button type="button" className="w-full rounded-full bg-brand py-3.5 font-semibold text-brand-foreground transition hover:brightness-110">
+              Enviar mensagem
+            </button>
+          </form>
+        </div>
+      </section>
     </SiteLayout>
+  );
+}
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="overflow-hidden rounded-xl border bg-card">
+      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between px-5 py-4 text-left font-semibold text-primary">
+        {q}
+        <ChevronDown size={18} className={`transition ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && <div className="px-5 pb-4 text-sm text-muted-foreground">{a}</div>}
+    </div>
   );
 }
