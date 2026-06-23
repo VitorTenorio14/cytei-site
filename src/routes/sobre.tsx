@@ -19,14 +19,14 @@ const fundadores = [
   {
     nome: "Edson Moreira Corrêa Filho",
     cargo: "Founder & CEO",
-    bio: "Economista, possui diversas especializações e MBAs em Negócios, Finanças, Estruturação de Projetos e Gestão de Projetos estratégicos e tecnológicos do segmento Bancário e Financeiro. Com 34 anos de experiência na estruturação de novas empresas, joint ventures e consultoria no País e no exterior, atuou como Analista de Projetos Sênior na Capgemini e desenvolveu plataformas de atendimento para o Conglomerado BB.",
-    foto: "https://cytei.com.br/wp-content/uploads/2021/04/edson-moreira.jpg"
+    bio: "Sócio fundador da CYTEI Tecnologia em Energia Inovadora Sustentável, desde 2029. Economista, com especializações e MBA em Negócios, Finanças, Estruturação e Gestão de Projetos Estratégicos e Tecnológicos para o setor Bancário e Financeiro. Concursado do Banco do Brasil, onde trabalho por 35 anos. Exerceu diversas funções e cargos destacando-se, entre eles, o de constituição de Joint Venture para estruturação de uma rede de distribuição de produtos e atendimento para o público não bancarizado, desenvolvimento e gestão da estratégia de atuação e apoio do Banco do Brasil no Desenvolvimento Regional Sustentável, consultoria em O&M para a estrutura do Banco do Brasil no exterior. Foi Gerente de Projetos Sr. na Capegimini atuando no projeto de estruturação tecnológica para um grade banco brasileiro.",
+    foto: "https://res.cloudinary.com/dj2ws9gmi/image/upload/v1782225441/edson-moreira_sqym3v.jpg"
   },
   {
     nome: "Willian Gabriel Ruas", 
     cargo: "Diretor de Tecnologia",
     bio: "Formado em Sistemas de Informação com MBA em Finanças, Controladoria e Auditoria. Atua no mercado de Tecnologia desde 2011 e no mercado de energias renováveis desde 2015, com ampla experiência computacional e passagem por multinacional norte-americana do setor solar, onde desenvolveu sistemas estratégicos e ferramentas de análise financeira para projetos fotovoltaicos.",
-    foto: "https://cytei.com.br/wp-content/uploads/2026/06/Gemini_Generated_Image_j3rr4yj3rr4yj3rr.png"
+    foto: "https://res.cloudinary.com/dj2ws9gmi/image/upload/v1782231138/Captura_de_tela_2026-06-23_131311_uldcvs.png"
   },
 ];
 
