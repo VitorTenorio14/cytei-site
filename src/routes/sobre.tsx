@@ -26,7 +26,7 @@ const fundadores = [
     nome: "Willian Gabriel Ruas", 
     cargo: "Diretor de Tecnologia",
     bio: "Formado em Sistemas de Informação com MBA em Finanças, Controladoria e Auditoria. Atua no mercado de Tecnologia desde 2011 e no mercado de energias renováveis desde 2015, com ampla experiência computacional e passagem por multinacional norte-americana do setor solar, onde desenvolveu sistemas estratégicos e ferramentas de análise financeira para projetos fotovoltaicos.",
-    foto: "https://res.cloudinary.com/dj2ws9gmi/image/upload/v1782231138/Captura_de_tela_2026-06-23_131311_uldcvs.png"
+    foto: "https://res.cloudinary.com/dj2ws9gmi/image/upload/v1782232104/Gemini_Generated_Image_wrlqljwrlqljwrlq_kocgkd.png"
   },
 ];
 
@@ -120,30 +120,29 @@ function SobrePage() {
           </div>
 
           {/* Grid 2 colunas em desktop, 1 em mobile */}
-          <div className="grid gap-10 md:grid-cols-2">
+          <div className="grid items-start gap-10 md:grid-cols-2">
             {fundadores.map((f) => (
               <div
                 key={f.nome}
-                className="flex flex-col gap-6 rounded-2xl border bg-card p-8 sm:flex-row sm:gap-8"
+                className="flex flex-col items-center gap-6 rounded-2xl border bg-card p-8 text-center sm:flex-row sm:items-start sm:gap-8 sm:text-left"
               >
                 {/* Foto — espaço reservado; */}
-                <div className="flex-shrink-0">
+                <div className="h-32 w-32 flex-shrink-0 overflow-hidden rounded-xl">
                   {f.foto ? (
                     <img
                       src={f.foto}
                       alt={`Foto de ${f.nome}`}
-                      className="h-32 w-32 rounded-xl object-cover"
+                      className="h-full w-full object-cover"
                     />
                   ) : (
-                    /* Placeholder visual até a foto ser adicionada */
-                    <div className="flex h-32 w-32 items-center justify-center rounded-xl bg-primary/10">
+                    <div className="flex h-full w-full items-center justify-center bg-primary/10">
                       <User size={48} className="text-primary/40" />
                     </div>
                   )}
                 </div>
 
                 {/* Texto */}
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-1 flex-col justify-center min-w-0">
                   <h3 className="font-display text-xl font-semibold text-primary">
                     {f.nome}
                   </h3>
