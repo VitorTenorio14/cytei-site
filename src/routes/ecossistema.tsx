@@ -113,12 +113,6 @@ function EcossistemaPage() {
             >
               Fale com a Enercoop do Brasil
             </a>
-            <a
-              href="/contato"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 font-semibold text-white transition hover:border-brand hover:text-brand"
-            >
-              Entre em contato
-            </a>
           </div>
         </div>
       </section>
