@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/Layout";
 import heroImg from "@/assets/hero-energy.jpg";
 import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useContactForm } from "@/hooks/use-contact-form";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -354,18 +355,66 @@ function HomePage() {
               Conte com o time CYTEI para encontrar a melhor solução para o seu perfil.
             </p>
           </div>
-          <form className="space-y-4 rounded-2xl bg-white p-8 text-foreground shadow-2xl">
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Nome completo" />
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="E-mail" type="email" />
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Telefone" />
-            <textarea rows={4} className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Como podemos ajudar?" />
-            <button type="button" className="w-full rounded-full bg-brand py-3.5 font-semibold text-brand-foreground transition hover:brightness-110">
-              Enviar mensagem
-            </button>
-          </form>
+          <HomeContactForm />
         </div>
       </section>
     </SiteLayout>
+  );
+}
+
+function HomeContactForm() {
+  const { formData, updateField, handleSubmit, status, errorMessage } = useContactForm();
+  const isSending = status === "sending";
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl bg-white p-8 text-foreground shadow-2xl">
+      <input
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="Nome completo"
+        value={formData.nome}
+        onChange={updateField("nome")}
+        required
+      />
+      <input
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="E-mail"
+        type="email"
+        value={formData.email}
+        onChange={updateField("email")}
+        required
+      />
+      <input
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="Telefone"
+        value={formData.telefone}
+        onChange={updateField("telefone")}
+      />
+      <textarea
+        rows={4}
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="Como podemos ajudar?"
+        value={formData.mensagem}
+        onChange={updateField("mensagem")}
+        required
+      />
+
+      <button
+        type="submit"
+        disabled={isSending}
+        className="w-full rounded-full bg-brand py-3.5 font-semibold text-brand-foreground transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {isSending ? "Enviando..." : "Enviar mensagem"}
+      </button>
+
+      {status === "success" && (
+        <p className="text-center text-sm font-medium text-green-600">
+          Mensagem enviada com sucesso! Em breve entraremos em contato.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="text-center text-sm font-medium text-red-600">{errorMessage}</p>
+      )}
+    </form>
   );
 }
 

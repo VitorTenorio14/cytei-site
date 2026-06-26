@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 import { Mail, Phone, MessageCircle, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { useContactForm } from "@/hooks/use-contact-form";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({ meta: [
@@ -86,25 +87,78 @@ function ContatoPage() {
             </div>
           </div>
 
-          <form className="space-y-4 rounded-2xl border bg-card p-8 shadow-sm">
-            <h3 className="font-display text-xl font-semibold text-primary">Envie sua mensagem</h3>
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Nome completo" />
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="E-mail" type="email" />
-            <input className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Telefone" />
-            <select className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand">
-              <option>Sou consumidor</option>
-              <option>Sou integradora</option>
-              <option>Sou investidor</option>
-              <option>Sou fornecedor</option>
-              <option>Outro</option>
-            </select>
-            <textarea rows={5} className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand" placeholder="Como podemos ajudar?" />
-            <button type="button" className="w-full rounded-full bg-brand py-3.5 font-semibold text-brand-foreground transition hover:brightness-110">
-              Enviar mensagem
-            </button>
-          </form>
+          <ContatoForm />
         </div>
       </section>
     </SiteLayout>
+  );
+}
+
+function ContatoForm() {
+  const { formData, updateField, handleSubmit, status, errorMessage } = useContactForm();
+  const isSending = status === "sending";
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 rounded-2xl border bg-card p-8 shadow-sm">
+      <h3 className="font-display text-xl font-semibold text-primary">Envie sua mensagem</h3>
+
+      <input
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="Nome completo"
+        value={formData.nome}
+        onChange={updateField("nome")}
+        required
+      />
+      <input
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="E-mail"
+        type="email"
+        value={formData.email}
+        onChange={updateField("email")}
+        required
+      />
+      <input
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="Telefone"
+        value={formData.telefone}
+        onChange={updateField("telefone")}
+      />
+      <select
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        value={formData.perfil}
+        onChange={updateField("perfil")}
+      >
+        <option>Sou consumidor</option>
+        <option>Sou integradora</option>
+        <option>Sou investidor</option>
+        <option>Sou fornecedor</option>
+        <option>Outro</option>
+      </select>
+      <textarea
+        rows={5}
+        className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
+        placeholder="Como podemos ajudar?"
+        value={formData.mensagem}
+        onChange={updateField("mensagem")}
+        required
+      />
+
+      <button
+        type="submit"
+        disabled={isSending}
+        className="w-full rounded-full bg-brand py-3.5 font-semibold text-brand-foreground transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {isSending ? "Enviando..." : "Enviar mensagem"}
+      </button>
+
+      {status === "success" && (
+        <p className="text-center text-sm font-medium text-green-600">
+          Mensagem enviada com sucesso! Em breve entraremos em contato.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="text-center text-sm font-medium text-red-600">{errorMessage}</p>
+      )}
+    </form>
   );
 }

@@ -16,6 +16,11 @@ dist-ssr
 .nitro
 *.local
 
+# Variáveis de ambiente locais (EmailJS, etc.) — não versionar
+.env
+.env.local
+!.env.example
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
