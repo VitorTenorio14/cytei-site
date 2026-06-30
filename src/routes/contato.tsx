@@ -119,9 +119,11 @@ function ContatoForm() {
       />
       <input
         className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"
-        placeholder="Telefone"
+        placeholder="(00) 00000-0000"
         value={formData.telefone}
         onChange={updateField("telefone")}
+        inputMode="numeric"
+        maxLength={15}
       />
       <select
         className="w-full rounded-lg border bg-background px-4 py-3 text-sm outline-none focus:border-brand"

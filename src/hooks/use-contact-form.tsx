@@ -25,6 +25,28 @@ const initialFormData: ContactFormData = {
   mensagem: "",
 };
 
+// Formata um telefone brasileiro progressivamente enquanto o usuário digita:
+// (xx) xxxx-xxxx para fixo (10 dígitos) e (xx) xxxxx-xxxx para celular (11 dígitos).
+// Sempre trabalha sobre os dígitos puros, então funciona bem com apagar/colar.
+function formatPhoneBR(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+
+  if (digits.length === 0) return "";
+  if (digits.length <= 2) return `(${digits}`;
+
+  const ddd = digits.slice(0, 2);
+  const rest = digits.slice(2);
+
+  if (rest.length <= 4) return `(${ddd}) ${rest}`;
+
+  // Até 10 dígitos totais: fixo, XXXX-XXXX. A partir do 11º: celular, XXXXX-XXXX.
+  const splitAt = digits.length <= 10 ? 4 : 5;
+  const firstPart = rest.slice(0, splitAt);
+  const secondPart = rest.slice(splitAt);
+
+  return secondPart ? `(${ddd}) ${firstPart}-${secondPart}` : `(${ddd}) ${firstPart}`;
+}
+
 // Hook compartilhado pelos formulários de contato (home e /contato).
 // Centraliza o estado dos campos, a chamada ao EmailJS e o feedback de
 // envio, evitando duplicar essa lógica em cada formulário.
@@ -36,7 +58,9 @@ export function useContactForm() {
   const updateField = React.useCallback(
     (field: keyof ContactFormData) =>
       (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+        const rawValue = e.target.value;
+        const value = field === "telefone" ? formatPhoneBR(rawValue) : rawValue;
+        setFormData((prev) => ({ ...prev, [field]: value }));
       },
     [],
   );
