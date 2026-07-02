@@ -61,6 +61,18 @@ const categoriaIcone: Record<Categoria, LucideIcon> = {
 // Posts
 // ---------------------------------------------------------------------------
 const posts: Post[] = [
+  // --- Notícia em destaque ---
+  {
+    titulo: "ANEEL aprova mais 3 reajustes na conta de luz: já são 22 aumentos em 2026",
+    categoria: "Regulatório",
+    data: "Jul 2026",
+    resumo:
+      "A ANEEL aprovou reajustes tarifários para Cocel, Energisa Tocantins e Enel São Paulo, com aumentos médios de 14,58%, 8,11% e 9,02%. Com isso, o número de reajustes autorizados pela agência em 2026 chega a 22, impactando mais de 70 milhões de unidades consumidoras em todo o país — praticamente todos acima da inflação projetada (5,1%). Entenda os fatores por trás dos aumentos e como a geração distribuída via cooperativas como a Enercoop protege o consumidor dessas oscilações tarifárias.",
+    fonte: "Canal Solar",
+    link: "https://canalsolar.com.br/aneel-reajustes-tres-distribuidoras-conta-de-luz/",
+    destaque: true,
+  },
+
   // --- Artigos informativos CYTEI ---
   {
     titulo: "Lei 14.300/2022: o marco legal que garante seus direitos na geração distribuída",
@@ -69,7 +81,7 @@ const posts: Post[] = [
     resumo:
       "Sancionada em janeiro de 2022, a Lei 14.300 instituiu o marco legal da micro e minigeração distribuída no Brasil, criando o Sistema de Compensação de Energia Elétrica (SCEE) e o Programa de Energia Renovável Social (PERS). Quem protocolou conexão até janeiro de 2023 mantém as regras antigas de compensação tarifária até 2045. Para os novos entrantes, a transição do Fio B é gradual e escalonada. Entenda o que muda, o que permanece e como isso afeta cooperativas de GD como a Enercoop.",
     fonte: "CYTEI",
-    destaque: true,
+    destaque: false,
   },
   {
     titulo: "Decreto 12.955/2026 e a reforma tributária: o que muda para cooperativas de energia?",

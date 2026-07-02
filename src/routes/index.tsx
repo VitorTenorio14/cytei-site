@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import heroImg from "@/assets/hero-energy.jpg";
-import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown } from "lucide-react";
+import newsReajusteImg from "@/assets/noticia-reajuste-aneel-2026.png";
+import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown, Newspaper } from "lucide-react";
 import { useState } from "react";
 import { useContactForm } from "@/hooks/use-contact-form";
 
@@ -173,6 +174,40 @@ function HomePage() {
         </div>
       </section>
 
+      {/* DESTAQUE NOTÍCIA */}
+      <section className="bg-[var(--surface)] py-14 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <Link
+            to="/noticias"
+            className="group grid overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl lg:grid-cols-2"
+          >
+            <div className="relative aspect-video overflow-hidden lg:aspect-auto">
+              <img
+                src={newsReajusteImg}
+                alt="Infográfico: ANEEL aprova 22 reajustes na conta de luz em 2026"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-col justify-center p-8 lg:p-12">
+              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                <Newspaper size={12} />
+                Regulatório
+              </span>
+              <h2 className="mt-4 font-display text-2xl font-bold leading-snug text-primary lg:text-3xl">
+                ANEEL aprova mais 3 reajustes na conta de luz: já são 22 aumentos em 2026
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Mais de 70 milhões de unidades consumidoras impactadas, todos os aumentos acima da inflação. Entenda o que está por trás dos reajustes — e como se proteger deles com a Enercoop.
+              </p>
+              <span className="mt-6 inline-flex items-center gap-2 font-semibold text-brand">
+                Ler notícia completa
+                <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* PARCERIA ENERCOOP */}
       <section className="bg-gradient-to-br from-[#243872] via-[#1A4A6A] to-[#0E6B5E] py-20 text-primary-foreground lg:py-28">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -288,7 +323,7 @@ function HomePage() {
               <div className="aspect-video overflow-hidden rounded-2xl bg-primary shadow-2xl">
                 <iframe
                   className="h-full w-full"
-                  src="https://www.youtube.com/embed/pON5ypZLqhk"
+                  src="https://www.youtube.com/embed/jY4S4dn0bGs"
                   title="CYTEI Institucional"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
