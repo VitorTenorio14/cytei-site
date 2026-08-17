@@ -15,6 +15,8 @@ import { Route as ParceirosRouteImport } from './routes/parceiros'
 import { Route as NoticiasRouteImport } from './routes/noticias'
 import { Route as EcossistemaRouteImport } from './routes/ecossistema'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as PoliticaPrivacidadeRouteImport } from './routes/politica-privacidade'
+import { Route as TermosUsoRouteImport } from './routes/termos-uso'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SobreRoute = SobreRouteImport.update({
@@ -47,6 +49,16 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PoliticaPrivacidadeRoute = PoliticaPrivacidadeRouteImport.update({
+  id: '/politica-privacidade',
+  path: '/politica-privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermosUsoRoute = TermosUsoRouteImport.update({
+  id: '/termos-uso',
+  path: '/termos-uso',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -59,8 +71,10 @@ export interface FileRoutesByFullPath {
   '/ecossistema': typeof EcossistemaRoute
   '/noticias': typeof NoticiasRoute
   '/parceiros': typeof ParceirosRoute
+  '/politica-privacidade': typeof PoliticaPrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/termos-uso': typeof TermosUsoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -68,8 +82,10 @@ export interface FileRoutesByTo {
   '/ecossistema': typeof EcossistemaRoute
   '/noticias': typeof NoticiasRoute
   '/parceiros': typeof ParceirosRoute
+  '/politica-privacidade': typeof PoliticaPrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/termos-uso': typeof TermosUsoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,8 +94,10 @@ export interface FileRoutesById {
   '/ecossistema': typeof EcossistemaRoute
   '/noticias': typeof NoticiasRoute
   '/parceiros': typeof ParceirosRoute
+  '/politica-privacidade': typeof PoliticaPrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/termos-uso': typeof TermosUsoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -89,8 +107,10 @@ export interface FileRouteTypes {
     | '/ecossistema'
     | '/noticias'
     | '/parceiros'
+    | '/politica-privacidade'
     | '/servicos'
     | '/sobre'
+    | '/termos-uso'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -98,8 +118,10 @@ export interface FileRouteTypes {
     | '/ecossistema'
     | '/noticias'
     | '/parceiros'
+    | '/politica-privacidade'
     | '/servicos'
     | '/sobre'
+    | '/termos-uso'
   id:
     | '__root__'
     | '/'
@@ -107,8 +129,10 @@ export interface FileRouteTypes {
     | '/ecossistema'
     | '/noticias'
     | '/parceiros'
+    | '/politica-privacidade'
     | '/servicos'
     | '/sobre'
+    | '/termos-uso'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,8 +141,10 @@ export interface RootRouteChildren {
   EcossistemaRoute: typeof EcossistemaRoute
   NoticiasRoute: typeof NoticiasRoute
   ParceirosRoute: typeof ParceirosRoute
+  PoliticaPrivacidadeRoute: typeof PoliticaPrivacidadeRoute
   ServicosRoute: typeof ServicosRoute
   SobreRoute: typeof SobreRoute
+  TermosUsoRoute: typeof TermosUsoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -165,6 +191,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/politica-privacidade': {
+      id: '/politica-privacidade'
+      path: '/politica-privacidade'
+      fullPath: '/politica-privacidade'
+      preLoaderRoute: typeof PoliticaPrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/termos-uso': {
+      id: '/termos-uso'
+      path: '/termos-uso'
+      fullPath: '/termos-uso'
+      preLoaderRoute: typeof TermosUsoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -181,8 +221,10 @@ const rootRouteChildren: RootRouteChildren = {
   EcossistemaRoute: EcossistemaRoute,
   NoticiasRoute: NoticiasRoute,
   ParceirosRoute: ParceirosRoute,
+  PoliticaPrivacidadeRoute: PoliticaPrivacidadeRoute,
   ServicosRoute: ServicosRoute,
   SobreRoute: SobreRoute,
+  TermosUsoRoute: TermosUsoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

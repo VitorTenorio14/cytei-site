@@ -51,8 +51,8 @@ export function Footer() {
             <li><Link to="/parceiros" className="hover:text-brand">Parceiros</Link></li>
             <li><Link to="/contato" className="hover:text-brand">Contato</Link></li>
             <li><a href="https://app.cytei.com.br" target="_blank" rel="noreferrer" className="hover:text-brand">Plataforma</a></li>
-            <li><a href="https://cytei.com.br/politica-privacidade/" className="hover:text-brand">Política de Privacidade</a></li>
-            <li><a href="https://cytei.com.br/politica-privacidade/" className="hover:text-brand">Termos de Uso</a></li>
+            <li><Link to="/politica-privacidade" className="hover:text-brand">Política de Privacidade</Link></li>
+            <li><Link to="/termos-uso" className="hover:text-brand">Termos de Uso</Link></li>
           </ul>
         </div>
 

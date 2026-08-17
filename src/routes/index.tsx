@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import heroImg from "@/assets/hero-energy.jpg";
-import newsReajusteImg from "@/assets/noticia-reajuste-aneel-2026.png";
-import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown, Newspaper } from "lucide-react";
+import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useContactForm } from "@/hooks/use-contact-form";
+
+// Troque esta constante pelo link do vídeo de marketing quando disponível
+const MARKETING_VIDEO_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0&modestbranding=1";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,9 +98,48 @@ function HomePage() {
           <span className="inline-block rounded-full bg-brand/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand">
             Energia que conecta
           </span>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl font-bold leading-tight lg:text-6xl">
-            A Gestão completa da <span className="text-brand">energia renovável</span> no Brasil, de ponta a ponta.
-          </h1>
+          <div className="mt-5 flex flex-wrap items-start gap-8 lg:flex-nowrap">
+            {/* Título */}
+            <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight lg:text-6xl">
+              A Gestão completa da <span className="text-brand">energia renovável</span> no Brasil, de ponta a ponta.
+            </h1>
+
+            {/* Logos parceiros + frase */}
+            <div className="flex shrink-0 flex-col gap-3 pt-1">
+              {/* Logos lado a lado */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="rounded-xl bg-white px-4 py-2.5 shadow-md">
+                  <img
+                    src="/logo-enercoop.png"
+                    alt="Enercoop do Brasil"
+                    className="h-8 w-auto object-contain lg:h-10"
+                  />
+                </div>
+                <div className="flex items-center rounded-xl border border-white/20 bg-white/10 px-4 py-2.5 backdrop-blur-sm">
+                  <span className="font-display text-base font-bold tracking-wide text-white lg:text-lg">
+                    SAGA
+                  </span>
+                </div>
+              </div>
+
+              {/* Frase + Confira */}
+              <p className="max-w-xs text-sm leading-relaxed text-white/70">
+                Enercoop do Brasil e SAGA unem tecnologia, cooperativismo e inovação
+                para transformar o mercado de energia renovável no país.{" "}
+                <a
+                  href="#video-marketing"
+                  className="font-semibold text-brand underline-offset-2 transition hover:underline"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("video-marketing")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  Confira
+                </a>
+              </p>
+            </div>
+          </div>
+
           <p className="mt-5 max-w-2xl text-lg text-white/85">
             A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética — conectando consumidores, integradoras, especialistas, investidores usineiros e fornecedores em uma única plataforma.
           </p>
@@ -160,51 +201,25 @@ function HomePage() {
 
             <div className="hidden flex-1 lg:block" />
 
-            <div className="flex flex-col items-center gap-3">
-              <div className="rounded-xl bg-white px-6 py-4 shadow-md lg:px-7 lg:py-5">
-                <img
-                  src="/logo-enercoop.png"
-                  alt="Enercoop do Brasil"
-                  className="h-10 w-auto object-contain lg:h-16"
-                />
-              </div>
-              <BotaoEnercoop />
-            </div>
+            <BotaoEnercoop />
           </div>
         </div>
       </section>
 
-      {/* DESTAQUE NOTÍCIA */}
-      <section className="bg-[var(--surface)] py-14 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <Link
-            to="/noticias"
-            className="group grid overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl lg:grid-cols-2"
-          >
-            <div className="relative aspect-video overflow-hidden lg:aspect-auto">
-              <img
-                src={newsReajusteImg}
-                alt="Infográfico: ANEEL aprova 22 reajustes na conta de luz em 2026"
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+      {/* VÍDEO DE MARKETING */}
+      <section id="video-marketing" className="bg-[var(--surface)] py-14 lg:py-20">
+        <div className="mx-auto max-w-5xl px-4 lg:px-8">
+          <div className="overflow-hidden rounded-2xl border shadow-sm">
+            <div className="relative aspect-video w-full">
+              <iframe
+                src={MARKETING_VIDEO_URL}
+                className="absolute inset-0 h-full w-full"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                title="Vídeo de marketing CYTEI"
               />
             </div>
-            <div className="flex flex-col justify-center p-8 lg:p-12">
-              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
-                <Newspaper size={12} />
-                Regulatório
-              </span>
-              <h2 className="mt-4 font-display text-2xl font-bold leading-snug text-primary lg:text-3xl">
-                ANEEL aprova mais 3 reajustes na conta de luz: já são 22 aumentos em 2026
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Mais de 70 milhões de unidades consumidoras impactadas, todos os aumentos acima da inflação. Entenda o que está por trás dos reajustes — e como se proteger deles com a Enercoop.
-              </p>
-              <span className="mt-6 inline-flex items-center gap-2 font-semibold text-brand">
-                Ler notícia completa
-                <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
+          </div>
         </div>
       </section>
 
