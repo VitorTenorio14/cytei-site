@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import heroImg from "@/assets/hero-energy.jpg";
-import newsReajusteImg from "@/assets/noticia-reajuste-aneel-2026.png";
-import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown, Newspaper } from "lucide-react";
+import { ArrowRight, BarChart3, Wrench, Users, Handshake, ChevronDown } from "lucide-react";
+
+// Caminho do vídeo local. Quando migrar para CDN/YouTube, troque aqui.
+const SAGA_VIDEO_SRC = "/videos/saga-comercial.mp4";
 import { useState } from "react";
 import { useContactForm } from "@/hooks/use-contact-form";
 
@@ -103,109 +105,124 @@ function HomePage() {
             A CYTEI é uma empresa de tecnologia e serviços para a completa gestão energética — conectando consumidores, integradoras, especialistas, investidores usineiros e fornecedores em uma única plataforma.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-end gap-4 lg:justify-between">
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="https://app.cytei.com.br"
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
-              >
-                Acesse a Plataforma
-                <ArrowRight size={18} className="transition group-hover:translate-x-1" />
-              </a>
+          <div className="mt-8 flex flex-col gap-4">
 
-              <a
-                href="https://proposta.cytei.com.br"
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
-              >
-                <span className="relative flex h-6 w-6 items-center justify-center">
-                  {/* Brilho pulsante atrás da lâmpada */}
-                  <span
-                    className="absolute inset-0 animate-ping rounded-full opacity-40"
-                    style={{ animation: "lampGlow 2s ease-in-out infinite", background: "currentColor" }}
-                  />
-                  {/* Ícone lâmpada SVG */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="relative z-10 h-5 w-5"
-                    style={{ animation: "lampColor 3s ease-in-out infinite" }}
-                  >
-                    <path d="M12 2a7 7 0 0 1 5.292 11.584c-.668.8-1.292 1.56-1.292 2.416v.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V16c0-.856-.624-1.616-1.292-2.416A7 7 0 0 1 12 2zm2.5 15.5h-5V19h5v-1.5zm-5 2h5v.5a2.5 2.5 0 0 1-5 0V19.5z" />
-                  </svg>
-                </span>
+            {/* Linha principal: botões esquerda + bloco Enercoop direita */}
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              {/* Botões esquerda */}
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="https://app.cytei.com.br"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
+                >
+                  Acesse a Plataforma
+                  <ArrowRight size={18} className="transition group-hover:translate-x-1" />
+                </a>
 
-                Gerar economia
-
-                <style>{`
-                  @keyframes lampColor {
-                    0%   { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
-                    33%  { color: #eab308; filter: drop-shadow(0 0 6px #eab308); }
-                    66%  { color: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
-                    100% { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
-                  }
-                  @keyframes lampGlow {
-                    0%   { background: #22c55e; transform: scale(1);   opacity: 0.3; }
-                    33%  { background: #eab308; transform: scale(1.4); opacity: 0.2; }
-                    66%  { background: #ef4444; transform: scale(1.2); opacity: 0.25; }
-                    100% { background: #22c55e; transform: scale(1);   opacity: 0.3; }
-                  }
-                `}</style>
-              </a>
-            </div>
-
-            <div className="hidden flex-1 lg:block" />
-
-            <div className="flex flex-col items-center gap-3">
-              <div className="rounded-xl bg-white px-6 py-4 shadow-md lg:px-7 lg:py-5">
-                <img
-                  src="/logo-enercoop.png"
-                  alt="Enercoop do Brasil"
-                  className="h-10 w-auto object-contain lg:h-16"
-                />
+                <a
+                  href="https://proposta.cytei.com.br"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border-2 border-white bg-[#222F66] px-7 py-3.5 font-semibold text-white shadow-lg transition hover:brightness-110"
+                >
+                  <span className="relative flex h-6 w-6 items-center justify-center">
+                    <span
+                      className="absolute inset-0 animate-ping rounded-full opacity-40"
+                      style={{ animation: "lampGlow 2s ease-in-out infinite", background: "currentColor" }}
+                    />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="relative z-10 h-5 w-5"
+                      style={{ animation: "lampColor 3s ease-in-out infinite" }}
+                    >
+                      <path d="M12 2a7 7 0 0 1 5.292 11.584c-.668.8-1.292 1.56-1.292 2.416v.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5V16c0-.856-.624-1.616-1.292-2.416A7 7 0 0 1 12 2zm2.5 15.5h-5V19h5v-1.5zm-5 2h5v.5a2.5 2.5 0 0 1-5 0V19.5z" />
+                    </svg>
+                  </span>
+                  Gerar economia
+                  <style>{`
+                    @keyframes lampColor {
+                      0%   { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+                      33%  { color: #eab308; filter: drop-shadow(0 0 6px #eab308); }
+                      66%  { color: #ef4444; filter: drop-shadow(0 0 6px #ef4444); }
+                      100% { color: #22c55e; filter: drop-shadow(0 0 6px #22c55e); }
+                    }
+                    @keyframes lampGlow {
+                      0%   { background: #22c55e; transform: scale(1);   opacity: 0.3; }
+                      33%  { background: #eab308; transform: scale(1.4); opacity: 0.2; }
+                      66%  { background: #ef4444; transform: scale(1.2); opacity: 0.25; }
+                      100% { background: #22c55e; transform: scale(1);   opacity: 0.3; }
+                    }
+                  `}</style>
+                </a>
               </div>
-              <BotaoEnercoop />
+
+              {/* Logo Enercoop + botão Calcule — empilhados à direita */}
+              <div className="flex flex-col items-center gap-3">
+                <div className="rounded-xl bg-white px-6 py-4 shadow-md lg:px-7 lg:py-5">
+                  <img
+                    src="/logo-enercoop.png"
+                    alt="Enercoop do Brasil"
+                    className="h-10 w-auto object-contain lg:h-16"
+                  />
+                </div>
+                <BotaoEnercoop />
+              </div>
             </div>
+
+            {/* Botão SAGA — destaque abaixo de tudo */}
+            <div>
+              <style>{`
+                @keyframes sagaPulse {
+                  0%, 100% { box-shadow: 0 0 0 0 rgba(250,204,21,.5); }
+                  50%       { box-shadow: 0 0 0 10px rgba(250,204,21,0); }
+                }
+                .btn-saga { animation: sagaPulse 2s ease-in-out infinite; }
+              `}</style>
+              <a
+                href="#video-saga"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("video-saga")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="btn-saga inline-flex items-center gap-2.5 rounded-full border-2 border-yellow-400 bg-yellow-400/20 px-6 py-3.5 font-semibold text-yellow-300 backdrop-blur-sm transition hover:bg-yellow-400/30"
+              >
+                <span className="text-base">⚡</span>
+                Confira a parceria estratégica da Enercoop com a SAGA
+                <ArrowRight size={16} />
+              </a>
+            </div>
+
           </div>
         </div>
       </section>
 
-      
-      {/* DESTAQUE NOTÍCIA */}
-      <section className="bg-[var(--surface)] py-14 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <Link
-            to="/noticias"
-            className="group grid overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl lg:grid-cols-2"
-          >
-            <div className="relative aspect-video overflow-hidden lg:aspect-auto">
-              <img
-                src={newsReajusteImg}
-                alt="Infográfico: ANEEL aprova 22 reajustes na conta de luz em 2026"
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex flex-col justify-center p-8 lg:p-12">
-              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
-                <Newspaper size={12} />
-                Regulatório
-              </span>
-              <h2 className="mt-4 font-display text-2xl font-bold leading-snug text-primary lg:text-3xl">
-                ANEEL aprova mais 3 reajustes na conta de luz: já são 22 aumentos em 2026
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Mais de 70 milhões de unidades consumidoras impactadas, todos os aumentos acima da inflação. Entenda o que está por trás dos reajustes — e como se proteger deles com a Enercoop.
-              </p>
-              <span className="mt-6 inline-flex items-center gap-2 font-semibold text-brand">
-                Ler notícia completa
-                <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
+
+      {/* VÍDEO SAGA */}
+      <section id="video-saga" className="bg-[var(--surface)] py-14 lg:py-20">
+        <div className="mx-auto max-w-5xl px-4 lg:px-8">
+          <div className="mb-6 text-center">
+            <span className="inline-block rounded-full bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand">
+              Parceria Estratégica
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-bold text-primary lg:text-3xl">
+              Enercoop do Brasil <span className="text-brand">×</span> SAGA
+            </h2>
+          </div>
+          <div className="overflow-hidden rounded-2xl border bg-black shadow-lg">
+            <video
+              src={SAGA_VIDEO_SRC}
+              className="w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            />
+          </div>
         </div>
       </section>
 
