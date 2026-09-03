@@ -26,6 +26,7 @@ interface Post {
   fonte?: string;
   link?: string;
   destaque?: boolean; // ocupa coluna dupla no grid
+  imagem?: string;   // caminho da imagem de capa (opcional)
 }
 
 // ---------------------------------------------------------------------------
@@ -71,6 +72,18 @@ const posts: Post[] = [
     fonte: "Canal Solar",
     link: "https://canalsolar.com.br/aneel-reajustes-tres-distribuidoras-conta-de-luz/",
     destaque: true,
+  },
+
+  // --- Raízes Solares ---
+  {
+    titulo: "Projeto Raízes Solares: iniciativa com CYTEI recebe reconhecimento nacional em Brasília",
+    categoria: "Mercado",
+    data: "Ago 2026",
+    resumo:
+      "O projeto Raízes Solares, idealizado pela SEDEPE (MA) e desenvolvido em parceria com CYTEI, JSN-Energia e Enercoop do Brasil, foi premiado pelo Fórum Nacional de Secretários de Minas e Energia e pela FGV Energia. Implantado na comunidade quilombola Piqui da Rampa, em Vargem Grande (MA), o projeto instalou três usinas fotovoltaicas de 30 kW que geram energia para residências e áreas produtivas — com a CYTEI responsável pelos sistemas de controle, gestão e tecnologias aplicadas ao social. A segunda fase prevê mais oito usinas de 300 kW.",
+    fonte: "O Imparcial",
+    link: "https://oimparcial.com.br/noticias/2026/08/projeto-idealizado-pela-sedepe-recebe-reconhecimento-nacional/",
+    imagem: "/images/raizes-solares-cbme26.webp",
   },
 
   // --- Artigos informativos CYTEI ---
@@ -243,8 +256,16 @@ function NoticiasPage() {
                   p.destaque ? "md:col-span-2 lg:col-span-1" : "",
                 ].join(" ")}
               >
-                {/* Capa com gradiente + ícone centralizado */}
-                {(() => {
+                {/* Capa: imagem se disponível, senão gradiente + ícone */}
+                {p.imagem ? (
+                  <div className={["relative overflow-hidden", p.destaque ? "aspect-[3/1]" : "aspect-video"].join(" ")}>
+                    <img
+                      src={p.imagem}
+                      alt={p.titulo}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                ) : (() => {
                   const Icone = categoriaIcone[p.categoria];
                   return (
                     <div
@@ -254,12 +275,9 @@ function NoticiasPage() {
                         p.destaque ? "aspect-[3/1]" : "aspect-video",
                       ].join(" ")}
                     >
-                      {/* Ícone central */}
                       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm ring-1 ring-white/20">
                         <Icone size={32} className="text-white drop-shadow" />
                       </div>
-
-                      {/* Badge CYTEI no canto inferior esquerdo */}
                       {p.fonte === "CYTEI" && (
                         <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
                           <BookOpen size={11} />
